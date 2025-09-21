@@ -1,1 +1,75 @@
+Maven Installation
+===================
+System Requirements 
+--------------------
+--> Maven 3.9+ requires JDK 8 or above to execute.
+--> No memory minimum requirement
+--> Disk [Approximately 10MB is required for the Maven installation itself.]
+--> Operating System [No minimum requirement. Start-up scripts are included as shell scripts (tested on many Unix flavors) and Windows batch files.]
+=========================================================================================================================================
 
+NOTE: All the external software is stored in the /opt directory
+
+Step 0: Launch an EC2 machine & connect to that machine
+
+Step 1: sudo su -  [switch to root user first]
+
+step 2: Install java
+-------------------
+yum update -y = To update packages/system
+
+javac -version = To know/search the version of Java
+
+NOTE: If you want to search in a Linux server, use the command below
+
+sudo yum search java | grep -i OpenJDK   = To find Java versions, and also it will show wherever openjdk matches, it will display all versions
+
+javac -version = To know/search the version of Java
+
+java 21
+--------
+sudo yum install java-21-openjdk-devel -y  = Install java 21 version
+
+Step 3: Install Maven software
+------
+Pre-Requisite Software
+-----------------------------
+Java (JDK) is the prerequisite software for Maven.
+
+1) Log in as a root user and change the directory to /opt/
+
+sudo su - already I'm in root only
+
+cd /opt/  = change directory to OPT because all external software is downloaded in /opt/
+
+
+2) Download the Maven Software
+===============================
+yum install wget unzip -y  = Before installing Maven software, try to install wget and unzip commands
+
+Go to browser ----- search --- mavendownload ---- click on official website --- select 2nd option ----- Binary zip code or bimar tar archive, don't need source code ---
+right-click on the link ----- copy link address---- and paste it in notepad.
+
+Wget is a command used in Linux to download files from the internet to your computer
+
+Wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.zip  - maven not installed, just downloaded in zip format, we need to unzip and install
+
+unzip apache-maven-3.9.11-bin.zip  ---- to unzip the zip file
+
+3) Set the class path/Environmental Variable
+
+# User-specific environment and startup programs
+
+
+vi ~/.bash_profile  ---> add below two statements
+
+Click the insert mode and then write the code below and esc, :wq
+
+export M2_HOME=/opt/apache-maven-3.9.11
+export PATH=$PATH:$M2_HOME/bin
+
+mvn -version or mvn -v ----> Not installed , you need to load 
+
+source ~/.bash_profile
+
+mvn -version or mvn -v 
