@@ -66,10 +66,25 @@ vi ~/.bash_profile  ---> add below two statements
 Click the insert mode and then write the code below and esc, :wq
 
 export M2_HOME=/opt/apache-maven-3.9.11
-export PATH=$PATH:$M2_HOME/bin
+export PATH=$PATH:$M2_HOME/bin   --- a home path lo bin dirctory command ni export chastunna enduku ante mvn command run cheyali
+ante, e MVN command ekkada vundi inside bin directory so, that we are passing like this
 
-mvn -version or mvn -v ----> Not installed , you need to load 
+mvn -version or mvn -v ----> Not installed, you need to load 
 
 source ~/.bash_profile
 
 mvn -version or mvn -v 
+=================================================================
+Export = linux command lo edaina path mention cheyali ante
+
+Syntax = export VARIABLE_NAME=value
+
+M2_HOME = Environmental variable 
+
+Maven software we installed in /opt/apache-maven-3.9.11
+
+Why can't you install = yum install maven -y?  = If you run this command, is it possible to install a specific version with 
+It is not possible. Manam, real-time lo we are using specific versions. 
+
+
+
